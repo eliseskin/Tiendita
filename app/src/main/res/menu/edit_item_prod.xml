@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Products.CRUDActivity">
+
+    <item
+        android:id="@+id/editUserItemP"
+        android:title="GUARDAR"
+        android:icon="@drawable/m_done"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/deleteUserItemP"
+        android:title="ELIMINAR"
+        android:icon="@drawable/m_delete"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/viewAllUserItemP"
+        android:title="VER TODOS"
+        android:icon="@drawable/m_list"
+        app:showAsAction="ifRoom" />
+</menu>

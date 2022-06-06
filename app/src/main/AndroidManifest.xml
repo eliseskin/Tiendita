@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" package="com.example.tiendita">
+
+    <application 
+        android:usesCleartextTraffic="true"
+        tools:replace="android:usesCleartextTraffic"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Tiendita">
+        <activity
+            android:name=".Views.SplashActivity"
+            android:exported="true"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity" android:label="Login" android:theme="@style/LoginTheme" android:exported="true" />
+        <activity android:name=".Views.UsuariosActivity" android:label="Lista" android:theme="@style/AppTheme" android:exported="true" />
+        <activity android:name=".Views.DashboardActivity" android:label="Home" android:theme="@style/HomeTheme" android:exported="true" />
+        <activity android:name=".Views.DetailActivity" android:label="Detalle" android:theme="@style/AppTheme" android:exported="true" />
+        <activity android:name=".Views.CRUDUsersActivity" android:label="CRUD" android:theme="@style/CRUDTheme" android:exported="true" />
+        <activity android:name=".Views.MenuActivity" android:label="Menu" android:theme="@style/HomeTheme" android:exported="true" />
+        <activity android:name=".Category.CategoriaActivity" android:label="Lista" android:theme="@style/AppTheme" android:exported="true" />
+        <activity android:name=".Category.DetailActivity" android:label="Detalle" android:theme="@style/AppTheme" android:exported="true" />
+        <activity android:name=".Category.CRUDActivity" android:label="CRUD" android:theme="@style/CRUDTheme" android:exported="true" />
+        <activity android:name=".Products.ProductosActivity" android:label="Lista" android:theme="@style/AppTheme" android:exported="true" />
+        <activity android:name=".Products.DetailActivity" android:label="Detalle" android:theme="@style/AppTheme" android:exported="true" />
+        <activity android:name=".Products.CRUDActivity" android:label="CRUD" android:theme="@style/CRUDTheme" android:exported="true" />
+        <activity android:name=".Clients.ClientesActivity" android:label="Lista" android:theme="@style/AppTheme" android:exported="true" />
+        <activity android:name=".Clients.DetailActivity" android:label="Detalle" android:theme="@style/AppTheme" android:exported="true" />
+        <activity android:name=".Clients.CRUDActivity" android:label="CRUD" android:theme="@style/CRUDTheme" android:exported="true" />
+        <activity android:name=".Sales.VentasActivity" android:label="Lista" android:theme="@style/AppTheme" android:exported="true" />
+        <activity android:name=".Sales.DetailActivity" android:label="Detalle" android:theme="@style/AppTheme" android:exported="true" />
+        <activity android:name=".Sales.CRUDActivity" android:label="CRUD" android:theme="@style/CRUDTheme" android:exported="true" />
+
+    </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+</manifest>

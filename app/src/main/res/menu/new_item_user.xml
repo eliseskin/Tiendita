@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Views.CRUDUsersActivity">
+
+    <item
+        android:id="@+id/insertUserItem"
+        android:title="GUARDAR"
+        android:icon="@drawable/m_add"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/viewAllUserItem"
+        android:title="VER TODOS"
+        android:icon="@drawable/m_list"
+        app:showAsAction="always" />
+</menu>
