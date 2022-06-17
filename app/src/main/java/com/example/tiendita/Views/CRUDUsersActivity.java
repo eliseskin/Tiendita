@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NavUtils;
 
+import com.example.tiendita.Category.CategoriaActivity;
 import com.example.tiendita.Helpers.Utils;
 import com.example.tiendita.R;
 import com.example.tiendita.Retrofit.ResponseModelUser;
@@ -191,20 +192,38 @@ public class CRUDUsersActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.insertUserItem:
-                insertData();
+                if (com.example.tiendita.Helpers.Utils.helper.userAdmin() == 0) {
+                    Utils.show(c, "Debe de ser administrador para esta operacion");
+                    Utils.openActivity(c, CategoriaActivity.class);
+                    finish();
+                } else {
+                    insertData();
+                }
                 return true;
             case R.id.editUserItem:
-                if (receivedUsuarios != null) {
-                    updateData();
+                if (com.example.tiendita.Helpers.Utils.helper.userAdmin() == 0) {
+                    Utils.show(c, "Debe de ser administrador para esta operacion");
+                    Utils.openActivity(c, CategoriaActivity.class);
+                    finish();
                 } else {
-                    Utils.show(this, "Editar funciona en modo editar");
+                    if (receivedUsuarios != null) {
+                        updateData();
+                    } else {
+                        Utils.show(this, "Editar funciona en modo editar");
+                    }
                 }
                 return true;
             case R.id.deleteUserItem:
-                if (receivedUsuarios != null) {
-                    deleteData();
+                if (com.example.tiendita.Helpers.Utils.helper.userAdmin() == 0) {
+                    Utils.show(c, "Debe de ser administrador para esta operacion");
+                    Utils.openActivity(c, CategoriaActivity.class);
+                    finish();
                 } else {
-                    Utils.show(this, "Eliminar funciona en modo eliminar");
+                    if (receivedUsuarios != null) {
+                        deleteData();
+                    } else {
+                        Utils.show(this, "Eliminar funciona en modo eliminar");
+                    }
                 }
             case R.id.viewAllUserItem:
                 Utils.openActivity(this, UsuariosActivity.class);

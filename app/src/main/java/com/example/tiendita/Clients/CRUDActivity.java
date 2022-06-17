@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NavUtils;
 
+import com.example.tiendita.Category.CategoriaActivity;
 import com.example.tiendita.HelpersClient.Utils;
 import com.example.tiendita.R;
 import com.example.tiendita.RetrofitClient.Clientes;
@@ -192,20 +193,38 @@ public class CRUDActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.insertUserItemCl:
-                insertData();
+                if (com.example.tiendita.Helpers.Utils.helper.userAdmin() == 0) {
+                    Utils.show(c, "Debe de ser administrador para esta operacion");
+                    Utils.openActivity(c, ClientesActivity.class);
+                    finish();
+                } else {
+                    insertData();
+                }
                 return true;
             case R.id.editUserItemCl:
-                if (receivedClientes != null) {
-                    updateData();
+                if (com.example.tiendita.Helpers.Utils.helper.userAdmin() == 0) {
+                    Utils.show(c, "Debe de ser administrador para esta operacion");
+                    Utils.openActivity(c, ClientesActivity.class);
+                    finish();
                 } else {
-                    Utils.show(this, "Editar funciona en modo editar");
+                    if (receivedClientes != null) {
+                        updateData();
+                    } else {
+                        Utils.show(this, "Editar funciona en modo editar");
+                    }
                 }
                 return true;
             case R.id.deleteUserItemCl:
-                if (receivedClientes != null) {
-                    deleteData();
+                if (com.example.tiendita.Helpers.Utils.helper.userAdmin() == 0) {
+                    Utils.show(c, "Debe de ser administrador para esta operacion");
+                    Utils.openActivity(c, ClientesActivity.class);
+                    finish();
                 } else {
-                    Utils.show(this, "Eliminar funciona en modo eliminar");
+                    if (receivedClientes != null) {
+                        deleteData();
+                    } else {
+                        Utils.show(this, "Eliminar funciona en modo eliminar");
+                    }
                 }
             case R.id.viewAllUserItemCl:
                 Utils.openActivity(this, ClientesActivity.class);

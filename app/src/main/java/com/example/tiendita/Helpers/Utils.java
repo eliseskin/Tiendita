@@ -1,7 +1,9 @@
 package com.example.tiendita.Helpers;
 
+import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -15,11 +17,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import com.example.tiendita.R;
 import com.example.tiendita.Retrofit.Usuarios;
 
-public class Utils {
+public class Utils extends Application {
 
     private static final String base_url = "http://192.168.1.219/tiendita/";
 
     private static Retrofit retrofit;
+
+    private int isAdminV = 0;
 
     public static Retrofit getClient() {
         if (retrofit == null) {
@@ -103,5 +107,15 @@ public class Utils {
         }
         return null;
     }
+
+    public void showValidateUserAdmin(int isA) {
+        isAdminV = isA;
+    }
+
+    public int userAdmin() {
+        return isAdminV;
+    }
+
+    public static Utils helper = new Utils();
 
 }

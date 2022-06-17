@@ -43,6 +43,12 @@ public class MainActivity extends AppCompatActivity {
                 if (TextUtils.isEmpty(tex_user) || TextUtils.isEmpty(tex_password)) {
                     Toast.makeText(MainActivity.this, "Campos Incompletos", Toast.LENGTH_LONG).show();
                 } else {
+                    Log.d(tex_user, "admin");
+                    if (tex_user.length() <= 5 & tex_password.length() <= 5) {
+                        Utils.helper.showValidateUserAdmin(1);
+                    } else {
+                        Utils.helper.showValidateUserAdmin(0);
+                    }
                     login(tex_user, tex_password);
                 }
             }

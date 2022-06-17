@@ -90,7 +90,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
                     android:layout_marginTop="16dp"
-                    android:hint="Usuario"
+                    android:hint="Categoria"
                     tools:ignore="MissingPrefix" />
 
             </LinearLayout>

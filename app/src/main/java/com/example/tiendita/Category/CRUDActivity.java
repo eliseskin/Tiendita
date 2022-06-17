@@ -184,20 +184,38 @@ public class CRUDActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.insertUserItemC:
-                insertData();
+                if (com.example.tiendita.Helpers.Utils.helper.userAdmin() == 0) {
+                    Utils.show(c, "Debe de ser administrador para esta operacion");
+                    Utils.openActivity(c, CategoriaActivity.class);
+                    finish();
+                } else {
+                    insertData();
+                }
                 return true;
             case R.id.editUserItemC:
-                if (receivedCategorias != null) {
-                    updateData();
+                if (com.example.tiendita.Helpers.Utils.helper.userAdmin() == 0) {
+                    Utils.show(c, "Debe de ser administrador para esta operacion");
+                    Utils.openActivity(c, CategoriaActivity.class);
+                    finish();
                 } else {
-                    Utils.show(this, "Editar funciona en modo editar");
+                    if (receivedCategorias != null) {
+                        updateData();
+                    } else {
+                        Utils.show(this, "Editar funciona en modo editar");
+                    }
                 }
                 return true;
             case R.id.deleteUserItemC:
-                if (receivedCategorias != null) {
-                    deleteData();
+                if (com.example.tiendita.Helpers.Utils.helper.userAdmin() == 0) {
+                    Utils.show(c, "Debe de ser administrador para esta operacion");
+                    Utils.openActivity(c, CategoriaActivity.class);
+                    finish();
                 } else {
-                    Utils.show(this, "Eliminar funciona en modo eliminar");
+                    if (receivedCategorias != null) {
+                        deleteData();
+                    } else {
+                        Utils.show(this, "Eliminar funciona en modo eliminar");
+                    }
                 }
             case R.id.viewAllUserItemC:
                 Utils.openActivity(this, CategoriaActivity.class);
